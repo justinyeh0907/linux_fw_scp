@@ -38,7 +38,11 @@ Built with the MediaTek private tree (`mt8188/`) absent, so the MDP part
 comes from the committed prebuilt `board/geralt_scp/lib/libmt_scp.a`.
 This is how the ChromeOS release builder builds this image. Both source
 repos report a clean tree, and the version timestamp comes from the git
-commit rather than the build date, so the build is reproducible.
+commit rather than the build date.
+
+The build is not bit-for-bit reproducible: two rebuilds from the same
+sources produced images that differ. The blob in this repository is the
+one that was hardware-verified (see Status below).
 
 ## Applying the patch
 
