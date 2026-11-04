@@ -50,6 +50,13 @@ git am /path/to/patches/0001-mediatek-mt8188-update-SCP-firmware-to-v2.0.30090.p
 
 ## Status
 
-Blob verified only structurally so far (ELF load layout matches the
-previous releases). Hardware verification -- decoding against a software
-reference on a Geralt DUT -- is pending.
+Verified on a Geralt DUT running linux-next 20261103 together with the
+two pending vcodec fixes (extended h264 vsi on MT8188). H.264 High
+320x180 (30 frames) was decoded by the SCP and every output frame was
+md5-identical to a software (ffmpeg) decode; no IOMMU faults and no
+decode timeouts.
+
+```
+SCP is ready. FW version geralt_scp_v2.0.30090-ca800f117
+bear.h264: 30/30 frames md5 match against ffmpeg
+```
